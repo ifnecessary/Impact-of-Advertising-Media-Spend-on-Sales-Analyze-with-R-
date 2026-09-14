@@ -20,12 +20,12 @@ cat("\n=== CORRELATION MATRIX ===\n")
 cor_mat <- cor(marketing)
 print(round(cor_mat, 3))
 # Save correlation plot
-png("/home/workdir/artifacts/analysis/correlation_pairs.png", width=800, height=800)
+png("/home/ifnecessary/workdir/analysis/correlation_pairs.png", width=800, height=800)
 pairs(marketing, main="Scatterplot Matrix of Marketing Variables",
  pch=19, col=rgb(0,0.4,0.7,0.5))
 dev.off()
 
-png("/home/workdir/artifacts/analysis/histograms.png", width=1000, height=800)
+png("/home/ifnecessary/workdir/analysis/histograms.png", width=1000, height=800)
 par(mfrow=c(2,2))
 hist(marketing$youtube, main="YouTube Budget", xlab="Budget ($000)", col="steelblue", border="white")
 hist(marketing$facebook, main="Facebook Budget", xlab="Budget ($000)", col="steelblue", border="white")
@@ -33,7 +33,7 @@ hist(marketing$newspaper, main="Newspaper Budget", xlab="Budget ($000)", col="st
 hist(marketing$sales, main="Sales", xlab="Sales (000 units)", col="darkgreen", border="white")
 dev.off()
 
-png("/home/workdir/artifacts/analysis/boxplots.png", width=1000, height=600)
+png("/home/ifnecessary/workdir/analysis/boxplots.png", width=1000, height=600)
 par(mfrow=c(1,4))
 boxplot(marketing$youtube, main="YouTube", col="steelblue")
 boxplot(marketing$facebook, main="Facebook", col="steelblue")
@@ -51,7 +51,7 @@ print(anova(model))
 cat("\n=== 95% CONFIDENCE INTERVALS FOR COEFFICIENTS ===\n")
 print(confint(model, level=0.95))
 
-png("/home/workdir/artifacts/analysis/residual_plots.png", width=1000, height=800)
+png"/home/ifnecessary/workdir/analysis/residual_plots.png", width=1000, height=800)
 par(mfrow=c(2,2))
 plot(model)
 dev.off()
@@ -92,7 +92,7 @@ print(summary(model_final))
 cat("\n=== 95% CI FINAL MODEL ===\n")
 print(confint(model_final))
 
-png("/home/workdir/artifacts/analysis/residual_plots_final.png", width=1000, height=800)
+png("/home/ifnecessary/workdir/analysis/residual_plots_final.png", width=1000, height=800)
 par(mfrow=c(2,2))
 plot(model_final)
 dev.off()
@@ -109,7 +109,7 @@ std_coef <- function(model) {
 }
 print(std_coef(model2))
 
-sink("/home/workdir/artifacts/analysis/full_output.txt")
+sink("/home/ifnecessary/workdir/analysis/full_output.txt")
 cat("=== FULL ANALYSIS OUTPUT ===\n\n")
 cat("DATA STRUCTURE\n")
 str(marketing)
